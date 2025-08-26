@@ -9,7 +9,7 @@ import Footer from "./components/Footer.jsx";
 import Cart from "./components/Cart";
 import { useContext } from "react";
 import { Context } from "./context/Context";
-
+import NotFound from "./components/NotFound";
 function App() {
   const { selectedProduct } = useContext(Context); // product to show in ProductDetails
 
@@ -36,6 +36,7 @@ function App() {
           element={<ProductDetails product={selectedProduct} />}
         />
         <Route path="cart" element={<Cart/>}/>
+        <Route path="*" element={<NotFound />}/>
       </Routes>
       <Footer />
     
