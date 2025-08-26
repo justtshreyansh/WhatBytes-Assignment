@@ -1,24 +1,32 @@
 import React, { useContext } from "react";
 import { Row, Col, Card, Typography } from "antd";
-import { Box } from "lucide-react"; // optional icon
+import { Box } from "lucide-react";
 import ProductCard from "./ProductCard";
 import { Context } from "../context/Context";
 
 const { Text, Title } = Typography;
 
 const ProductListing = () => {
-  const { products, filters } = useContext(Context);
+  const { products, filters, searchQuery } = useContext(Context);
 
-  const filteredProducts = products.filter((product) => {
-    const categoryMatch =
-      !filters.categories.length ||
-      filters.categories.includes("All") ||
-      filters.categories.includes(product.category);
+  // First apply filters (category & price), then search
+  const filteredProducts = products
+    .filter((product) => {
+      const categoryMatch =
+        !filters.categories.length ||
+        filters.categories.includes("All") ||
+        filters.categories.includes(product.category);
 
-    const priceMatch = product.price <= (filters.maxPrice || 1000);
+      const priceMatch = product.price <= (filters.maxPrice || 1000);
 
-    return categoryMatch && priceMatch;
-  });
+      return categoryMatch && priceMatch;
+    })
+    .filter((product) => {
+      // Apply search only on filtered products
+      return product.title
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase());
+    });
 
   if (!filteredProducts.length) {
     return (
@@ -43,7 +51,7 @@ const ProductListing = () => {
             No Products Found
           </Title>
           <Text type="secondary">
-            Sorry, there are no products matching your selected filters.
+            Sorry, no products match your filters or search.
           </Text>
         </Card>
       </div>

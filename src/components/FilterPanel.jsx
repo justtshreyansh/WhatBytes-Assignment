@@ -12,7 +12,7 @@ const FilterPanel = () => {
   const [selectedCategories, setSelectedCategories] = useState(filters.categories || []);
   const [price, setPrice] = useState(filters.maxPrice || 1000);
 
-  // Keep local state in sync with context
+ 
   useEffect(() => {
     setSelectedCategories(filters.categories || []);
     setPrice(filters.maxPrice || 1000);

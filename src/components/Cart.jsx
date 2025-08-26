@@ -9,7 +9,7 @@ const { Title, Text } = Typography;
 const Cart = () => {
   const { cart, setCart } = useContext(Context);
 
-  // Update quantity for a product
+  
   const handleQuantityChange = (productId, value) => {
     const updatedCart = cart.map(item => {
       if (item.id === productId) return { ...item, quantity: value };
@@ -19,14 +19,14 @@ const Cart = () => {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
-  // Remove item from cart
+  
   const handleRemove = (productId) => {
     const updatedCart = cart.filter(item => item.id !== productId);
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
-  // Calculate total
+ 
   const totalPrice = cart.reduce((acc, item) => acc + item.price * (item.quantity || 1), 0);
 
   return (

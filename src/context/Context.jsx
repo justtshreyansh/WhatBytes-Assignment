@@ -4,33 +4,42 @@ import data from "../data/data.json";
 export const Context = createContext(null);
 
 export default function ContextProvider({ children }) {
-  const [cart, setCart] = useState(() => {
-    const savedCart = localStorage.getItem("cart");
-    return savedCart ? JSON.parse(savedCart) : [];
-  });
-
   const [products, setProducts] = useState(() => {
-    const savedProducts = localStorage.getItem("products");
-    return savedProducts ? JSON.parse(savedProducts) : data;
+    const saved = localStorage.getItem("products");
+    return saved ? JSON.parse(saved) : data;
   });
-
-  // Filters state with defaults
+  const [cart, setCart] = useState(() => {
+    const saved = localStorage.getItem("cart");
+    return saved ? JSON.parse(saved) : [];
+  });
   const [filters, setFilters] = useState({
     categories: [],
     maxPrice: 1000
   });
+  const [searchQuery, setSearchQuery] = useState("");
 
-  // Save cart and products to localStorage
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
+  // Persist products and cart to localStorage
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(products));
   }, [products]);
 
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   return (
-    <Context.Provider value={{ cart, setCart, products, setProducts, filters, setFilters }}>
+    <Context.Provider
+      value={{
+        products,
+        setProducts,
+        cart,
+        setCart,
+        filters,
+        setFilters,
+        searchQuery,
+        setSearchQuery
+      }}
+    >
       {children}
     </Context.Provider>
   );

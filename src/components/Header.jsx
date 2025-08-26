@@ -1,17 +1,18 @@
 // Navbar.jsx
 import React, { useContext } from "react";
 import { Input, Badge, Avatar } from "antd";
-import { ShoppingCart,Store } from "lucide-react";
+import { ShoppingCart, Store } from "lucide-react";
 import "./Header.css";
 import { Context } from "../context/Context";
 
 const Navbar = () => {
-  const{cart,setCart} = useContext(Context);
+  const { cart, searchQuery, setSearchQuery } = useContext(Context);
+
   return (
     <nav className="navbar">
       {/* Logo */}
       <div className="navbar-logo">
-        <Store/>
+        <Store />
       </div>
 
       {/* Search Bar */}
@@ -20,7 +21,9 @@ const Navbar = () => {
           placeholder="Search products..."
           enterButton
           size="large"
-          onSearch={(value) => console.log(value)}
+          value={searchQuery} // controlled input
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onSearch={(value) => setSearchQuery(value)}
         />
       </div>
 

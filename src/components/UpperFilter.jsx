@@ -31,7 +31,7 @@ const UpperFilter = () => {
         <Text className="filter-label">Category</Text>
         <Checkbox.Group
           options={categories}
-          value={filters.categories || []} // default empty array
+          value={filters.categories || []} 
           onChange={handleCategoryChange}
           className="checkbox-group"
         />
@@ -45,7 +45,7 @@ const UpperFilter = () => {
         <Slider
           min={0}
           max={1000}
-          value={filters.maxPrice || 0} // default 0
+          value={filters.maxPrice || 0} 
           onChange={handlePriceChange}
           marks={{ 0: 0, 1000: 1000 }}
           trackStyle={{ backgroundColor: "#fff" }}
