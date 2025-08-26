@@ -1,0 +1,36 @@
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111;
+    color: #fff;
+    padding: 15px 40px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box; 
+  }
+  
+  .footer-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .footer-icons a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .footer-icons svg {
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  
+  .footer-icons svg:hover {
+    transform: scale(1.2);
+    color: #ff4757; 
+  }
+  
+  .footer-center {
+    text-align: center;
+  }
+  
