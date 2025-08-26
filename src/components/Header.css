@@ -1,0 +1,48 @@
+/* Navbar.css */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 70px;
+    background-color: #1e40af; /* nice blue */
+    color: white;
+  }
+  
+  .navbar-logo img {
+    height: 50px;
+    cursor: pointer;
+  }
+  
+  .navbar-search {
+    width: 30%; /* 30% on desktop */
+  }
+  
+  .navbar-search .ant-input-search {
+    background-color: #f3f4f6; /* light background for search */
+    border-radius: 8px;
+  }
+  
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      height: auto;
+      padding: 10px;
+    }
+  
+    .navbar-search {
+      width: 100%;
+      margin: 10px 0;
+    }
+  
+    .navbar-actions {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+  
