@@ -1,32 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import './App.css';
 import Header from "./components/Header.jsx";
 import UpperFilter from "./components/UpperFilter.jsx";
 import FilterPanel from "./components/FilterPanel.jsx";
 import ProductListing from "./components/ProductListing.jsx";
+import ProductDetails from "./components/ProductDetails.jsx";
 import Footer from "./components/Footer.jsx";
 import Cart from "./components/Cart";
+import { useContext } from "react";
+import { Context } from "./context/Context";
+
 function App() {
- 
+  const { selectedProduct } = useContext(Context); // product to show in ProductDetails
 
   return (
-    <>
-      <Header/>
-      <div className="container">
-        <div className="left">
-        <UpperFilter/>
-      <FilterPanel/>
-        </div>
-        <div className="right"><ProductListing/></div>
-      </div>
-      <Footer/>
-      <Cart/>
-     
-      
-    </>
-  )
+    <Router>
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="container">
+              <div className="left">
+                <UpperFilter />
+                <FilterPanel />
+              </div>
+              <div className="right">
+                <ProductListing />
+              </div>
+            </div>
+          }
+        />
+        <Route
+          path="/product/:id"
+          element={<ProductDetails product={selectedProduct} />}
+        />
+        <Route path="cart" element={<Cart/>}/>
+      </Routes>
+      <Footer />
+    
+    </Router>
+  );
 }
 
-export default App
+export default App;

@@ -8,21 +8,27 @@ export default function ContextProvider({ children }) {
     const saved = localStorage.getItem("products");
     return saved ? JSON.parse(saved) : data;
   });
+
   const [cart, setCart] = useState(() => {
     const saved = localStorage.getItem("cart");
     return saved ? JSON.parse(saved) : [];
   });
+
   const [filters, setFilters] = useState({
     categories: [],
-    maxPrice: 1000
+    maxPrice: 1000,
   });
-  const [searchQuery, setSearchQuery] = useState("");
 
-  // Persist products and cart to localStorage
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  // Persist products in localStorage
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(products));
   }, [products]);
 
+  // Persist cart in localStorage
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
@@ -36,8 +42,10 @@ export default function ContextProvider({ children }) {
         setCart,
         filters,
         setFilters,
-        searchQuery,
-        setSearchQuery
+        searchTerm,
+        setSearchTerm,
+        selectedProduct,
+        setSelectedProduct,
       }}
     >
       {children}

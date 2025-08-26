@@ -2,14 +2,15 @@ import React, { useContext } from "react";
 import { Card, Button, InputNumber, Typography } from "antd";
 import { ShoppingCart, Trash2 } from "lucide-react";
 import { Context } from "../context/Context";
+import { useNavigate } from "react-router-dom";
 import "./Cart.css";
 
 const { Title, Text } = Typography;
 
 const Cart = () => {
   const { cart, setCart } = useContext(Context);
+  const navigate = useNavigate();
 
-  
   const handleQuantityChange = (productId, value) => {
     const updatedCart = cart.map(item => {
       if (item.id === productId) return { ...item, quantity: value };
@@ -19,18 +20,35 @@ const Cart = () => {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
-  
   const handleRemove = (productId) => {
     const updatedCart = cart.filter(item => item.id !== productId);
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
- 
   const totalPrice = cart.reduce((acc, item) => acc + item.price * (item.quantity || 1), 0);
 
   return (
     <div className="cart-container">
+     
+      <Button
+        type="default"
+        style={{
+            marginBottom: "20px",
+            padding: "10px 20px",
+            fontSize: "16px",
+            fontWeight: "600",
+            borderRadius: "8px",
+            backgroundColor: "#f0f0f0",
+            color: "#000",
+            border: "1px solid #d9d9d9",
+            cursor: "pointer"
+          }}
+        onClick={() => navigate("/")}
+      >
+        ← Continue Shopping
+      </Button>
+
       <Title level={3}>Your Cart</Title>
       {cart.length === 0 ? (
         <Text>Your cart is empty.</Text>

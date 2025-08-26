@@ -7,26 +7,22 @@ import { Context } from "../context/Context";
 const { Text, Title } = Typography;
 
 const ProductListing = () => {
-  const { products, filters, searchQuery } = useContext(Context);
+  const { products, filters } = useContext(Context);
 
-  // First apply filters (category & price), then search
-  const filteredProducts = products
-    .filter((product) => {
-      const categoryMatch =
-        !filters.categories.length ||
-        filters.categories.includes("All") ||
-        filters.categories.includes(product.category);
+  const filteredProducts = products.filter((product) => {
+    const categoryMatch =
+      !filters.categories?.length ||
+      filters.categories.includes("All") ||
+      filters.categories.includes(product.category);
 
-      const priceMatch = product.price <= (filters.maxPrice || 1000);
+    const priceMatch = product.price <= (filters.maxPrice || 1000);
 
-      return categoryMatch && priceMatch;
-    })
-    .filter((product) => {
-      // Apply search only on filtered products
-      return product.title
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase());
-    });
+    const searchMatch = product.title
+      ? product.title.toLowerCase().includes(filters.searchText?.toLowerCase() || "")
+      : false;
+
+    return categoryMatch && priceMatch && searchMatch;
+  });
 
   if (!filteredProducts.length) {
     return (
@@ -51,7 +47,7 @@ const ProductListing = () => {
             No Products Found
           </Title>
           <Text type="secondary">
-            Sorry, no products match your filters or search.
+            Sorry, there are no products matching your selected filters.
           </Text>
         </Card>
       </div>
