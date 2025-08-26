@@ -2,3 +2,64 @@
   margin: 0;
   padding: 0;
 }
+.upper-filter-card {
+  width: 100%; 
+  background-color: #093FB4;
+  border-radius: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.filter-title {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-label {
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column; 
+}
+
+.checkbox-group .ant-checkbox-wrapper {
+  color: white;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.price-values {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.price-text {
+  color: white;
+  font-weight: 500;
+}
+
+.slider-mark {
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .upper-filter-card {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
