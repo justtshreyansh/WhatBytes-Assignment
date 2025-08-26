@@ -3,12 +3,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Header from "./components/Header";
+import UpperFilter from "./components/UpperFilter";
 function App() {
  
 
   return (
     <>
       <Header/>
+      <UpperFilter/>
     </>
   )
 }
