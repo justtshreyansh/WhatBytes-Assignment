@@ -7,7 +7,7 @@ import { Context } from "../context/Context";
 const { Text, Title } = Typography;
 
 const ProductListing = () => {
-  const { products, filters } = useContext(Context);
+  const { products, filters, searchTerm } = useContext(Context);
 
   const filteredProducts = products.filter((product) => {
     const categoryMatch =
@@ -18,7 +18,7 @@ const ProductListing = () => {
     const priceMatch = product.price <= (filters.maxPrice || 1000);
 
     const searchMatch = product.title
-      ? product.title.toLowerCase().includes(filters.searchText?.toLowerCase() || "")
+      ? product.title.toLowerCase().includes(searchTerm.toLowerCase())
       : false;
 
     return categoryMatch && priceMatch && searchMatch;
