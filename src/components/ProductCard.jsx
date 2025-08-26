@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
   };
 
   const handleCardClick = () => {
-    setSelectedProduct(product); // save selected product in context
+    setSelectedProduct(product); 
     navigate(`/product/${product.id}`);
   };
 
