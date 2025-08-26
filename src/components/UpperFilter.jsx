@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Card, Checkbox, Slider, Typography } from "antd";
 import "./UpperFilter.css";
+import FilterPanel from "./FilterPanel";
 
 const { Title, Text } = Typography;
 
@@ -25,7 +26,8 @@ const UpperFilter = () => {
   };
 
   return (
-    <Card className="upper-filter-card" bordered={false}>
+     
+ <Card className="upper-filter-card" bordered={false}>
       <Title level={4} className="filter-title">Filters</Title>
 
     
@@ -59,6 +61,10 @@ const UpperFilter = () => {
         />
       </div>
     </Card>
+      
+     
+   
+
   );
 };
 
