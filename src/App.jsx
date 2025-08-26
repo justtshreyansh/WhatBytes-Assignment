@@ -7,6 +7,7 @@ import UpperFilter from "./components/UpperFilter.jsx";
 import FilterPanel from "./components/FilterPanel.jsx";
 import ProductListing from "./components/ProductListing.jsx";
 import Footer from "./components/Footer.jsx";
+import Cart from "./components/Cart";
 function App() {
  
 
@@ -21,6 +22,7 @@ function App() {
         <div className="right"><ProductListing/></div>
       </div>
       <Footer/>
+      <Cart/>
      
       
     </>

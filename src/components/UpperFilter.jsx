@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Card, Checkbox, Slider, Typography } from "antd";
+import { Context } from "../context/Context";
 import "./UpperFilter.css";
 
 const { Title, Text } = Typography;
 
 const UpperFilter = () => {
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [priceRange, setPriceRange] = useState([0, 1000]);
+  const { filters, setFilters } = useContext(Context);
 
   const categories = [
     { label: "All", value: "All" },
@@ -15,8 +15,13 @@ const UpperFilter = () => {
     { label: "Home", value: "Home" },
   ];
 
-  const handleCategoryChange = (checkedValues) => setSelectedCategories(checkedValues);
-  const handlePriceChange = (value) => setPriceRange(value);
+  const handleCategoryChange = (checkedValues) => {
+    setFilters({ ...filters, categories: checkedValues });
+  };
+
+  const handlePriceChange = (value) => {
+    setFilters({ ...filters, maxPrice: value });
+  };
 
   return (
     <Card className="upper-filter-card" bordered={false}>
@@ -26,7 +31,7 @@ const UpperFilter = () => {
         <Text className="filter-label">Category</Text>
         <Checkbox.Group
           options={categories}
-          value={selectedCategories}
+          value={filters.categories || []} // default empty array
           onChange={handleCategoryChange}
           className="checkbox-group"
         />
@@ -35,14 +40,12 @@ const UpperFilter = () => {
       <div className="filter-section">
         <Text className="filter-label">Price</Text>
         <div className="price-values">
-          <Text className="price-text">${priceRange[0]}</Text>
-          <Text className="price-text">${priceRange[1]}</Text>
+          <Text className="price-text">${filters.maxPrice || 0}</Text> 
         </div>
         <Slider
-          range
           min={0}
           max={1000}
-          value={priceRange}
+          value={filters.maxPrice || 0} // default 0
           onChange={handlePriceChange}
           marks={{ 0: 0, 1000: 1000 }}
           trackStyle={{ backgroundColor: "#fff" }}

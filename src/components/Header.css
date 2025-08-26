@@ -5,8 +5,11 @@
     justify-content: space-between;
     padding: 0 20px;
     height: 70px;
-    background-color: #1e40af; /* nice blue */
+    background-color: #1e40af; 
     color: white;
+    position: sticky; 
+    top: 0;          
+    z-index: 1000;   
   }
   
   .navbar-logo img {
@@ -15,11 +18,11 @@
   }
   
   .navbar-search {
-    width: 30%; /* 30% on desktop */
+    width: 30%; 
   }
   
   .navbar-search .ant-input-search {
-    background-color: #f3f4f6; /* light background for search */
+    background-color: #f3f4f6; 
     border-radius: 8px;
   }
   

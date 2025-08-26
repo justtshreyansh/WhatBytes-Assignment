@@ -1,10 +1,12 @@
 // Navbar.jsx
-import React from "react";
+import React, { useContext } from "react";
 import { Input, Badge, Avatar } from "antd";
 import { ShoppingCart,Store } from "lucide-react";
 import "./Header.css";
+import { Context } from "../context/Context";
 
 const Navbar = () => {
+  const{cart,setCart} = useContext(Context);
   return (
     <nav className="navbar">
       {/* Logo */}
@@ -24,7 +26,7 @@ const Navbar = () => {
 
       {/* Cart & Profile */}
       <div className="navbar-actions">
-        <Badge count={3} offset={[0, 0]}>
+        <Badge count={cart.length} offset={[0, 0]}>
           <ShoppingCart size={28} color="#fff" />
         </Badge>
         <Avatar

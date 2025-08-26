@@ -1,20 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Card, Checkbox, InputNumber, Button, Typography } from "antd";
+import { Context } from "../context/Context";
 import "./FilterPanel.css";
 
 const { Text } = Typography;
 
 const FilterPanel = () => {
-  const categoriesList = ["All", "Electronics", "Clothing", "Home"];
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [price, setPrice] = useState(1000);
+  const { filters, setFilters } = useContext(Context);
 
-  const handleCheckboxChange = (checkedValues) => setSelectedCategories(checkedValues);
-  const handlePriceChange = (value) => setPrice(value);
+  const categoriesList = ["All", "Electronics", "Clothing", "Home"];
+  const [selectedCategories, setSelectedCategories] = useState(filters.categories || []);
+  const [price, setPrice] = useState(filters.maxPrice || 1000);
+
+  // Keep local state in sync with context
+  useEffect(() => {
+    setSelectedCategories(filters.categories || []);
+    setPrice(filters.maxPrice || 1000);
+  }, [filters]);
+
+  const handleCheckboxChange = (checkedValues) => {
+    setSelectedCategories(checkedValues);
+  };
+
+  const handlePriceChange = (value) => {
+    setPrice(value);
+  };
 
   const handleApplyFilter = () => {
-    console.log("Applied Categories:", selectedCategories);
-    console.log("Applied Price:", price);
+    setFilters({
+      categories: selectedCategories,
+      maxPrice: price
+    });
   };
 
   return (
@@ -28,7 +44,7 @@ const FilterPanel = () => {
       />
 
       <div className="filter-panel-price-section">
-        <Text strong className="filter-panel-label">Price</Text>
+        <Text strong className="filter-panel-label">Max Price</Text>
         <InputNumber
           min={0}
           max={1000}

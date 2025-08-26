@@ -1,0 +1,111 @@
+[
+    {
+      "id": 1,
+      "title": "Wireless Headphones",
+      "price": 99.99,
+      "category": "Electronics",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      "description": "High-quality wireless headphones with noise cancellation and long battery life.",
+      "rating": 4.5
+    },
+    {
+      "id": 2,
+      "title": "Smart Watch",
+      "price": 149.99,
+      "category": "Electronics",
+      "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&auto=format&fit=crop&q=60",
+      "description": "Feature-packed smartwatch with fitness tracking, heart rate monitor, and notifications.",
+      "rating": 4.2
+    },
+    {
+      "id": 3,
+      "title": "Laptop Stand",
+      "price": 29.99,
+      "category": "Electronics",
+      "image": "https://images.unsplash.com/photo-1623251609314-97cc1f84e3ed?w=500&auto=format&fit=crop&q=60",
+      "description": "Adjustable laptop stand for better posture and cooling efficiency.",
+      "rating": 4.0
+    },
+    {
+      "id": 4,
+      "title": "Bluetooth Speaker",
+      "price": 79.99,
+      "category": "Electronics",
+      "image": "https://images.unsplash.com/photo-1618532498309-08ba18e6da89?w=500&auto=format&fit=crop&q=60",
+      "description": "Portable Bluetooth speaker with deep bass and 12-hour playtime.",
+      "rating": 4.6
+    },
+    {
+      "id": 5,
+      "title": "Gaming Mouse",
+      "price": 49.99,
+      "category": "Electronics",
+      "image": "https://images.unsplash.com/photo-1632160871990-be30194885aa?w=500&auto=format&fit=crop&q=60",
+      "description": "Ergonomic gaming mouse with customizable buttons and RGB lighting.",
+      "rating": 4.3
+    },
+    {
+      "id": 6,
+      "title": "Mechanical Keyboard",
+      "price": 59.99,
+      "category": "Electronics",
+      "image": "https://images.unsplash.com/photo-1625130694338-4110ba634e59?w=500&auto=format&fit=crop&q=60",
+      "description": "Durable mechanical keyboard with tactile keys and backlighting.",
+      "rating": 4.4
+    },
+    {
+      "id": 7,
+      "title": "Men's T-Shirt",
+      "price": 19.99,
+      "category": "Clothing",
+      "image": "https://images.unsplash.com/photo-1714070700737-24acfe6b957c?w=500&auto=format&fit=crop&q=60",
+      "description": "Soft cotton t-shirt with a modern fit, perfect for daily wear.",
+      "rating": 4.1
+    },
+    {
+      "id": 8,
+      "title": "Women's Jacket",
+      "price": 89.99,
+      "category": "Clothing",
+      "image": "https://plus.unsplash.com/premium_photo-1675186049366-64a655f8f537?w=500&auto=format&fit=crop&q=60",
+      "description": "Stylish women's jacket with warm lining, ideal for winter outings.",
+      "rating": 4.5
+    },
+    {
+      "id": 9,
+      "title": "Running Shoes",
+      "price": 69.99,
+      "category": "Clothing",
+      "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      "description": "Lightweight and comfortable running shoes for daily workouts.",
+      "rating": 4.2
+    },
+    {
+      "id": 10,
+      "title": "Table Lamp",
+      "price": 39.99,
+      "category": "Home",
+      "image": "https://plus.unsplash.com/premium_photo-1664194583989-96c9fa85de8f?w=500&auto=format&fit=crop&q=60",
+      "description": "Minimalist LED table lamp with adjustable brightness settings.",
+      "rating": 4.0
+    },
+    {
+      "id": 11,
+      "title": "Office Chair",
+      "price": 199.99,
+      "category": "Home",
+      "image": "https://images.unsplash.com/photo-1688578735352-9a6f2ac3b70a?w=500&auto=format&fit=crop&q=60",
+      "description": "Ergonomic office chair with lumbar support and adjustable height.",
+      "rating": 4.7
+    },
+    {
+      "id": 12,
+      "title": "Coffee Maker",
+      "price": 89.99,
+      "category": "Home",
+      "image": "https://images.unsplash.com/photo-1608354580875-30bd4168b351?w=500&auto=format&fit=crop&q=60",
+      "description": "Compact coffee maker with quick brew technology and easy cleaning.",
+      "rating": 4.3
+    }
+  ]
+  
