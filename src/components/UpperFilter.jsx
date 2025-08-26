@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Card, Checkbox, Slider, Typography } from "antd";
 import { Context } from "../context/Context";
-import "./UpperFilter.css";
+
 
 const { Title, Text } = Typography;
 
