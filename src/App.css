@@ -1,0 +1,23 @@
+/* Container with padding and horizontal layout */
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* space between left and right columns */
+    padding: 20px; /* padding on all sides */
+  }
+  
+  /* Left sidebar: 20-25% width */
+  .left {
+    flex: 0 0 25%; /* can change to 20% if you want smaller */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* space between UpperFilter and FilterPanel */
+  }
+  
+  /* Right content: 50-70% width (remaining space) */
+  .right {
+    flex: 1; /* automatically takes remaining space */
+    min-width: 50%; /* ensures it doesn't get too small */
+    max-width: 70%; /* limits it to max 70% */
+  }
+  

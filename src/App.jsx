@@ -5,14 +5,22 @@ import './App.css'
 import Header from "./components/Header";
 import UpperFilter from "./components/UpperFilter";
 import FilterPanel from "./components/FilterPanel";
+import ProductListing from "./components/ProductListing"
 function App() {
  
 
   return (
     <>
       <Header/>
-      <UpperFilter/>
+      <div className="container">
+        <div className="left">
+        <UpperFilter/>
       <FilterPanel/>
+        </div>
+        <div className="right"><ProductListing/></div>
+      </div>
+     
+      
     </>
   )
 }

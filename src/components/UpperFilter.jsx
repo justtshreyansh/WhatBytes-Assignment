@@ -1,8 +1,6 @@
-// UpperFilter.jsx
 import React, { useState } from "react";
 import { Card, Checkbox, Slider, Typography } from "antd";
 import "./UpperFilter.css";
-import FilterPanel from "./FilterPanel";
 
 const { Title, Text } = Typography;
 
@@ -17,20 +15,13 @@ const UpperFilter = () => {
     { label: "Home", value: "Home" },
   ];
 
-  const handleCategoryChange = (checkedValues) => {
-    setSelectedCategories(checkedValues);
-  };
-
-  const handlePriceChange = (value) => {
-    setPriceRange(value);
-  };
+  const handleCategoryChange = (checkedValues) => setSelectedCategories(checkedValues);
+  const handlePriceChange = (value) => setPriceRange(value);
 
   return (
-     
- <Card className="upper-filter-card" bordered={false}>
+    <Card className="upper-filter-card" bordered={false}>
       <Title level={4} className="filter-title">Filters</Title>
 
-    
       <div className="filter-section">
         <Text className="filter-label">Category</Text>
         <Checkbox.Group
@@ -41,7 +32,6 @@ const UpperFilter = () => {
         />
       </div>
 
-     
       <div className="filter-section">
         <Text className="filter-label">Price</Text>
         <div className="price-values">
@@ -54,17 +44,13 @@ const UpperFilter = () => {
           max={1000}
           value={priceRange}
           onChange={handlePriceChange}
-          marks={{ 0: <span className="slider-mark">0</span>, 1000: <span className="slider-mark">1000</span> }}
-          trackStyle={{ backgroundColor: "white" }}
-          handleStyle={[{ borderColor: "white" }, { borderColor: "white" }]}
+          marks={{ 0: 0, 1000: 1000 }}
+          trackStyle={{ backgroundColor: "#fff" }}
+          handleStyle={[{ borderColor: "#fff" }, { borderColor: "#fff" }]}
           railStyle={{ backgroundColor: "rgba(255,255,255,0.3)" }}
         />
       </div>
     </Card>
-      
-     
-   
-
   );
 };
 
